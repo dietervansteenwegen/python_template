@@ -2,7 +2,8 @@
 GIT
 #########
 * `git config -e`
-
+git config user.name "dietervansteenwegen"
+git config user.email github@vansteenwegen.org
 
 #########
 SPHINX
