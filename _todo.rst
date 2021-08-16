@@ -1,9 +1,12 @@
 #########
 GIT
 #########
-* `git config -e`
+rm -r .git
+git init
 git config user.name "dietervansteenwegen"
 git config user.email github@vansteenwegen.org
+git remote add origin git_prive:Panthyr/xxxx
+git push -u origin main
 
 #########
 SPHINX
