@@ -31,3 +31,5 @@ VENV
 Others
 ########
 * Write **README.md**
+
+Check https://stackoverflow.com/questions/59821618/how-to-use-yapf-or-black-in-vscode/66377157 for yapf config
