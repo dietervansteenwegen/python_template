@@ -25,6 +25,8 @@ VENV
 `python3 -m virtualenv --python python3 venv`
 
 `.\\venv\\Scripts\\activate`
+`pip install yapf flake8 pystyle pre-commit`
+`pre-commit run --all files`
 
 
 ########
