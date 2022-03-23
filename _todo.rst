@@ -1,37 +1,66 @@
-#########
-GIT
-#########
-rm -r .git
-git init
-git config user.name "dietervansteenwegen"
-git config user.email github@vansteenwegen.org
-git remote add origin git_prive:Panthyr/xxxx
-git push -u origin main
+############
+Cleanup repo
+############
+- ``rm -r .git``
+- ``rm -r .mypy_cache``
+- ``rm -r .github``
+- ``rm -r venv``
 
-#########
-SPHINX
-#########
+############
+GIT init
+############
+- Create **EMPTY** repo on Github
+- ``git init``
+- ``git remote add origin git_prive:dietervansteenwegen/xxxxx``
 
-`cd docs`
-`sphinx-quickstart`
+############
+SPHINX docs
+############
 
-* copy conf.py parts
-* add modules and usage to index.rst
+- ``cd docs``
+- ``sphinx-quickstart``
+- copy/update conf.py parts
+- add modules and usage to index.rst
 
-########
-VENV
-########
+############
+Prep VENV
+############
+----------
+Linux
+----------
+- ``python3 -m virtualenv --python python3 venv``
+- ``source .\venv\Scripts\activate``
 
-`python3 -m virtualenv --python python3 venv`
+----------
+Windows
+----------
+- ``python -m venv venv``
+- ``.\venv\Scripts\activate.bat``
 
-`.\\venv\\Scripts\\activate`
-`pip install yapf flake8 pre-commit`
-`pre-commit run --all files`
-
+----------
+Afterwards
+----------
+- ``pip install yapf flake8 pre-commit``
+- ``pre-commit run --all-files``
+- ``pre-commit install``
 
 ########
 Others
 ########
-* Write **README.md**
+- Rename module folder and script
+- Write **README.md**
+- Update **setup.py**
+- update **conf.py** (Sphinx)
+- Recreate **requirements.txt**
+- write **usage.rxt**
+- Update **requirements.txt**
+- Remove this file
 
-Check https://stackoverflow.com/questions/59821618/how-to-use-yapf-or-black-in-vscode/66377157 for yapf config
+
+################
+COMMIT/PUSH
+################
+- ``git add *``
+- ``git status``
+- ``git commit -m "initial commit"``
+- ``git push -u origin master``
