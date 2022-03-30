@@ -40,7 +40,7 @@ Windows
 ----------
 Afterwards
 ----------
-- ``pip install yapf flake8 pre-commit``
+- ``pip install yapf flake8 pre-commit rope flake8-bugbear tryceratops``
 - ``pre-commit run --all-files``
 - ``pre-commit install``
 
