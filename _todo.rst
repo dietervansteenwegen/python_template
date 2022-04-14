@@ -21,6 +21,7 @@ SPHINX docs
 - ``sphinx-quickstart``
 - copy/update conf.py parts
 - add modules and usage to index.rst
+- in source subdir, run ``sphinx-apidoc.exe --force --output-dir . ../.. ../../setup.py``
 
 ############
 Prep VENV

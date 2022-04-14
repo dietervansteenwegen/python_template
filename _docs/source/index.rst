@@ -1,4 +1,4 @@
-Welcome to Panthyr FLIR PTU-D48e's documentation!
+Welcome to XXX documentation!
 =================================================
 
 .. toctree::
