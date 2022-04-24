@@ -50,6 +50,8 @@ Others
 ########
 - Rename module folder and script
 - Write **README.md**
+- Update link to repo in README.md badge
+- Delete README files in asset directories
 - Update **setup.py**
 - update **conf.py** (Sphinx)
 - Recreate **requirements.txt**
