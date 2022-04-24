@@ -142,8 +142,6 @@ cython_debug/
 ### Credentials file
 credentials*
 
-### scratchpad directory
-scratchpad/
 
 ### VisualStudioCode ###
 .vscode/
