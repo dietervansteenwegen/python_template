@@ -1,5 +1,5 @@
 ===============================
-XXX example code
+REPLACE_WITH_PROJECT_NAME example code
 ===============================
 
 Example code:
@@ -7,4 +7,4 @@ Example code:
 
 .. code:: python
 
-    >>> from XXX import YYYU
+    >>> from XXX import YYY
