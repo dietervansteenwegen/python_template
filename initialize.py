@@ -61,11 +61,16 @@ def set_up_venv() -> None:
     execute_cmd('pre-commit install')
 
 
-def replace_project_name(project_name: str) -> None:
-    print(f'\n--> Replacing project name with {project_name}')
-    cmd = (f'grep -rl {PROJ_PLACEHOLDER} . --exclude-dir=.git |'
-           f" xargs sed -i 's/{PROJ_PLACEHOLDER}/{project_name}/g")
-    execute_cmd(cmd)
+def replace_placeholder(project_name: str) -> None:
+    print(f'\n--> Replacing placeholder with {project_name}')
+    cmd_list = [
+        'grep', '-rl', f'{PROJ_PLACEHOLDER}', '.', '--exclude=initialize.py', '--exclude-dir=.git'
+    ]
+    files = subprocess.check_output(cmd_list).decode().split()
+    for file in files:
+        cmd = f'sed -i \'s/{PROJ_PLACEHOLDER}/{project_name}/g\' {file}'
+        print(cmd)
+        execute_cmd(cmd)
 
 
 def set_up_docs() -> None:
@@ -84,7 +89,7 @@ def main() -> None:
     set_up_git(repo_address)
     if use_venv:
         set_up_venv()
-    replace_project_name(project_name)
+    replace_placeholder(project_name)
     set_up_docs()
 
 
