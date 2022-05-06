@@ -1,8 +1,9 @@
-import subprocess
-from typing import Union
-import sys
+# -*- coding: utf-8 -*-
 import shlex
+import subprocess
+import sys
 from typing import Tuple
+from typing import Union
 
 # TODO: Get base dir at start, then use absolute file paths
 # TODO: try out PySimpleGUI (https://cushychicken.github.io/python-guis-for-heretics/)
@@ -19,8 +20,10 @@ def get_user_input() -> Tuple[str, str, bool]:
     venv = input('Use VENV [y/n]').upper() == 'Y'
     repo_address = f'{REPO_PREFIX}{repo_name}.git'
     print('\n')
-    ok = input(f'Project name: {project_name}\nRepo address: {repo_address}\n'
-               f'Use venv and install packages {PACKAGES}: {venv}\n OK? [y/n]')
+    ok = input(
+        f'Project name: {project_name}\nRepo address: {repo_address}\n'
+        f'Use venv and install packages {PACKAGES}: {venv}\n OK? [y/n]',
+    )
     if ok.upper() != 'Y':
         print('Exiting, start again.')
         sys.exit()
@@ -64,7 +67,7 @@ def set_up_venv() -> None:
 def replace_placeholder(project_name: str) -> None:
     print(f'\n--> Replacing placeholder with {project_name}')
     cmd_list = [
-        'grep', '-rl', f'{PROJ_PLACEHOLDER}', '.', '--exclude=initialize.py', '--exclude-dir=.git'
+        'grep', '-rl', f'{PROJ_PLACEHOLDER}', '.', '--exclude=initialize.py', '--exclude-dir=.git',
     ]
     files = subprocess.check_output(cmd_list).decode().split()
     for file in files:
