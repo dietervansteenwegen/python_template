@@ -1,4 +1,4 @@
-Welcome to XXX documentation!
+Welcome to REPLACE_WITH_PROJECT_NAME documentation!
 =================================================
 
 .. toctree::
