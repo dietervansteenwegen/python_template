@@ -1,0 +1,67 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Generate Sphinx modules",
+            "type": "shell",
+            "command": "sphinx-apidoc",
+            "args": [
+                "--force",
+                "--output-dir",
+                ".",
+                "../..",
+                "../../setup.py"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/docs/source"
+            },
+            "problemMatcher": [
+                "$eslint-stylish"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                // "revealProblems": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        },
+        {
+            "label": "Generate Sphinx documentation",
+            "type": "shell",
+            "command": "sphinx-build",
+            "args": [
+                "-b",
+                "html",
+                "source/",
+                "build/",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/docs/"
+            },
+            "problemMatcher": [
+                "$eslint-stylish"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                // "revealProblems": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "dependsOn": [
+                "Generate Sphinx modules",
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
