@@ -1,0 +1,13 @@
+{
+    "esbonio.sphinx.buildDir": "${workspaceFolder}/docs/build/html",
+    "esbonio.sphinx.confDir": "${workspaceFolder}/docs/source",
+    "esbonio.sphinx.srcDir": "${workspaceFolder}/docs/source",
+    "restructuredtext.linter.doc8.executablePath": "${env:HOME}/.local/bin/doc8",
+    "restructuredtext.linter.doc8.extraArgs": [
+        "--max-line-length 99",
+        "--ignore D002"
+    ],
+    "restructuredtext.linter.rstcheck.executablePath": "${env:HOME}/.local/bin/rstcheck",
+    "restructuredtext.linter.rst-lint.executablePath": "${env:HOME}/.local/bin/rst-lint",
+    "restructuredtext.linter.run": "onType",
+}
