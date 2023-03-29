@@ -67,3 +67,10 @@ COMMIT/PUSH
 - ``git status``
 - ``git commit -m "initial commit"``
 - ``git push -u origin master``
+
+
+################
+ADD/CHEKCOUT/PUSH Develop branch
+################
+- ``git checkout -b develop``
+- ``git push -u origin develop``
