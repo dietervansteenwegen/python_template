@@ -1,6 +1,6 @@
 {
     "esbonio.sphinx.buildDir": "${workspaceFolder}/docs/build/html",
-    "esbonio.sphinx.confDir": "${workspaceFolder}/docs/source",
+    "esbonio.sphinx.confDir": "${workspaceFolder}\\docs\\source",
     "esbonio.sphinx.srcDir": "${workspaceFolder}/docs/source",
     "restructuredtext.linter.doc8.executablePath": "${env:HOME}/.local/bin/doc8",
     "restructuredtext.linter.doc8.extraArgs": [
