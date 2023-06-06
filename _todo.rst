@@ -48,6 +48,7 @@ Afterwards
 ########
 Others
 ########
+- Update **pyproject.toml**
 - Rename module folder and script
 - Write **README.md**
 - Update link to repo in README.md badge

@@ -1,0 +1,61 @@
+# See https://peps.python.org/pep-0621/
+
+[project]
+name = 'REPLACE_WITH_PROJECT_NAME'
+readme = 'README.md'
+version = '0.1.0'
+description = 'Python template'
+# license = { file = 'LICENSE.txt' }
+keywords = ['Test']
+authors = [
+    { email = 'news1@vansteenwegen.org' },
+    { name = 'Dieter Vansteenwegen' },
+]
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Programming Language :: Python',
+]
+
+# dependencies = [
+#   'httpx',
+#   'django>2.1; os_name != 'nt'',
+# ]
+
+[project.urls]
+Homepage = 'https://www.vansteenwegen.org'
+# Documentation = 'https://readthedocs.org'
+Repository = 'https://github.com/dietervansteenwegen/xxx.git'
+# Changelog = 'https://github.com/me/spam/blob/master/CHANGELOG.md'
+
+[project.scripts]
+my-package-script = 'package_dir.package:function'
+
+[project.gui-scripts]
+spam-gui = "package_dir.package:start_gui"
+
+[project.optional-dependencies]
+gui = ['PyQt5']
+# cli = ['rich', 'click']
+
+[build-system]
+requires = ['setuptools', 'setuptools-scm']
+# build-backend = 'setuptools.build.meta'     # Generates 'ModuleNotFoundError: No module named 'setuptools.build'
+
+[tool.setuptools.packages.find]
+where = ['src'] # list of folders that contain the packages (['.'] by default)
+include = [
+    'package_dir',
+] # package names should match these glob patterns (['*'] by default)
+# exclude = ['my_package.tests*'] # exclude packages matching these glob patterns (empty by default)
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+# tests = ["B201", "B301"]
+# skips = ["B101", "B601"]
+
+[tool.yapf]
+based_on_style = 'pep8'
+column_limit = 99
+indent_width = 4
+spaces_before_comment = 2
+split_before_logical_operator = true
