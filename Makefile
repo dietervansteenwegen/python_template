@@ -1,6 +1,6 @@
 ## Based on https://duarteocarmo.com/blog/opinionated-python-boilerplate
 
-.PHONY: install clean prep build 
+.PHONY: install clean prep build ui
 
 ## Install for production
 install:
@@ -8,7 +8,7 @@ install:
 	python -m pip install --upgrade pip
 	python -m pip install -e .
 
-## Install for development 
+## Install for development
 # install-dev: install
 # 	python -m pip install -e ".[dev]"
 
@@ -27,6 +27,9 @@ build:
 	# python -m pip install pip-tools
 	# pip-compile --resolver=backtracking --output-file=requirements.txt pyproject.toml
 	# pip-compile --resolver=backtracking --output-file=requirements-dev.txt pyproject.toml
+
+ui:
+	pyuic5 assets/gui_sources/mainwindow.ui -o src/gui/ui_sources/mainwindow.py
 
 ## Build the docker image
 # docker:

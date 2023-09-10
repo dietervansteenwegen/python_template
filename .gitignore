@@ -157,6 +157,7 @@ credentials*
 *.log.3
 *.log.4
 *.log.5
+logs/
 
 ### Own generated files
 *.pdf

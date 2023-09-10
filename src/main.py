@@ -8,4 +8,10 @@ __project_link__ = 'https://www.vansteenwegen.org'
 
 from gui.gui import start_gui
 
-start_gui()
+
+def gui():
+    start_gui()
+
+
+if __name__ == '__main__':
+    gui()
