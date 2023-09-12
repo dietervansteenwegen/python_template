@@ -15,6 +15,8 @@ classifiers = [
     'Development Status :: 4 - Beta',
     'Programming Language :: Python',
 ]
+requires-python = ">3.5.2"
+dynamic = ["dependencies"]
 
 # dependencies = [
 #   'httpx',
