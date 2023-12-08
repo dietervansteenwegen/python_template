@@ -5,7 +5,7 @@ name = 'REPLACE_WITH_PROJECT_NAME' # No_spaces_allowed
 readme = 'README.md'
 version = '0.1.0'
 description = 'Python template'
-# license = { file = 'LICENSE.txt' }
+license = { file = 'LICENSE' }
 keywords = ['Test']
 authors = [
     { email = 'news1@vansteenwegen.org' },
@@ -27,10 +27,10 @@ dynamic = ["dependencies"]
 Homepage = 'https://www.vansteenwegen.org'
 # Documentation = 'https://readthedocs.org'
 Repository = 'https://github.com/dietervansteenwegen/xxx.git'
-# Changelog = 'https://github.com/me/spam/blob/master/CHANGELOG.md'
+Changelog = 'https://github.com/me/spam/blob/master/CHANGELOG.md' # UPDATE TODO
 
 [project.scripts]
-my-package-script = 'package_dir.package:function'
+my-package-script = 'main:main'
 
 [project.gui-scripts]
 spam-gui = "main:gui"
@@ -41,7 +41,7 @@ gui = ['PyQt5']
 
 [build-system]
 requires = ['setuptools', 'setuptools-scm']
-# build-backend = 'setuptools.build.meta'
+build-backend = 'setuptools.build.meta'
 
 [tool.setuptools.dynamic]
 dependencies = { file = ["requirements.txt"] }
@@ -49,7 +49,7 @@ dependencies = { file = ["requirements.txt"] }
 [tool.setuptools.packages.find]
 where = ['src'] # list of folders that contain the packages (['.'] by default)
 include = [
-    'package_dir',
+    # 'package_dir',
 ] # package names should match these glob patterns (['*'] by default)
 # exclude = ['my_package.tests*'] # exclude packages matching these glob patterns (empty by default)
 
