@@ -1,26 +1,25 @@
 # See https://peps.python.org/pep-0621/
 
 [project]
+authors = [{ email = 'news1@vansteenwegen.org', name = 'Dieter Vansteenwegen' }]
 name = 'REPLACE_WITH_PROJECT_NAME' # No_spaces_allowed
 readme = 'README.md'
 version = '0.1.0'
 description = 'Python template'
 license = { file = 'LICENSE' }
 keywords = ['Test']
-authors = [
-    { email = 'news1@vansteenwegen.org' },
-    { name = 'Dieter Vansteenwegen' },
-]
 classifiers = [
     'Development Status :: 4 - Beta',
     'Programming Language :: Python',
 ]
 requires-python = ">3.5.2"
 dynamic = ["dependencies"]
+# version can also be set in the dynamic field to get it from a __version__ file. Add  
+# version = { attr = "package.__version__" }
+# to [tool.setuptools.dynamic]
 
 # dependencies = [
-#   'httpx',
-#   'django>2.1; os_name != 'nt'',
+
 # ]
 
 [project.urls]
