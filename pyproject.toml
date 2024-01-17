@@ -87,6 +87,7 @@ exclude = [
     "dist",
     "node_modules",
     "venv",
+    "docs",
 ]
 line-length = 100
 indent-width = 4
