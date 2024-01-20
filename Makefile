@@ -1,7 +1,20 @@
 ## Based on https://duarteocarmo.com/blog/opinionated-python-boilerplate
 
-.PHONY: install clean prep build ui
+.PHONY: install clean prep build ui cleanup_git
 
+## Create list of local branches in a temporary file.
+## Afterwards remove all branches from file.
+cleanup_git:
+	@echo "*****************************************************************************"
+	@echo ">> Creating list of all merged branches without current, master or develop"
+	@echo ">> Will fail if no branches are to be deleted"
+	@echo "*****************************************************************************"
+
+	@git branch --merged | grep -iv "master\|develop\|*" >/tmp/merged-branches
+	@echo ">> Edit list so that it only contains branches to be deleted, then save."
+	@echo ">> Hit <CTRL> + C to cancel."
+	@vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches
+	
 ## Install for production
 install:
 	@echo ">> Installing dependencies"
