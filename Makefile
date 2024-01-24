@@ -2,8 +2,8 @@
 
 .PHONY: install clean prep build ui cleanup_git
 
-## Create list of local branches in a temporary file. 
-## Afterwards remove all branches from file. 
+## Create list of local branches in a temporary file.
+## Afterwards remove all branches from file.
 cleanup_git:
 	@echo "*****************************************************************************"
 	@echo ">> Creating list of all merged branches without current, master or develop"
@@ -14,7 +14,7 @@ cleanup_git:
 	@echo ">> Edit list so that it only contains branches to be deleted, then save."
 	@echo ">> Hit <CTRL> + C to cancel."
 	@vi /tmp/merged-branches && xargs git branch -d </tmp/merged-branches
-
+	
 ## Install for production
 install:
 	@echo ">> Installing dependencies"
