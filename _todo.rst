@@ -12,6 +12,8 @@ GIT init
 - Create **EMPTY** repo on Github
 - ``git init``
 - ``git remote add origin git_prive:dietervansteenwegen/xxxxx``
+- ``git checkout -b develop``
+
 
 ############
 SPHINX docs
@@ -69,11 +71,10 @@ COMMIT/PUSH
 - ``git add *``
 - ``git status``
 - ``git commit -m "initial commit"``
-- ``git push -u origin master``
+- ``git push -u origin develop``
 
 
 ################
 ADD/CHEKCOUT/PUSH Develop branch
 ################
-- ``git checkout -b develop``
 - ``git push -u origin develop``
