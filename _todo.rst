@@ -46,7 +46,7 @@ Afterwards
 # - ``pip install yapf flake8 pre-commit rope flake8-bugbear tryceratops``  ## Should be using pipx
 - ``pip install --upgrade pip``
 - ``pre-commit update``
-- ``pre-commit run --all-files``
+.. - ``pre-commit run --all-files``  # No use since no files have been staged
 - ``pre-commit install``
 
 ########
