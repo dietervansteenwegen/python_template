@@ -5,13 +5,15 @@ __author__ = 'Dieter Vansteenwegen'
 __project__ = 'Iana'
 __project_link__ = 'https://www.vansteenwegen.org'
 
+import datetime as dt
 import logging
 import logging.handlers
-import datetime as dt
+from pathlib import Path
 from typing import Union
-from PyQt5.QtWidgets import QPlainTextEdit, QDialog, QDesktopWidget, QHBoxLayout
+
+import pytz
 from PyQt5.QtGui import QFont
-import os
+from PyQt5.QtWidgets import QDesktopWidget, QDialog, QHBoxLayout
 
 LOG_FMT = (
     '%(asctime)s|%(levelname)-8.8s|%(thread)-18.18d|%(threadName)s|%(module)-15.15s|%(lineno)-0.4d|'
@@ -21,6 +23,7 @@ DATEFMT = '%d/%m/%Y %H:%M:%S'
 LOGFILE = './logs/logfile.log'
 LOG_FILE_MAX_BYTES = 1000000
 LOG_BACKUP_COUNT = 10
+TZ_UTC = pytz.timezone('utc')
 
 
 class MilliSecondsFormatter(logging.Formatter):
@@ -31,7 +34,7 @@ class MilliSecondsFormatter(logging.Formatter):
         logging (logging.Formatter): formatter to add timestamp formatter to.
     """
 
-    def formatTime(self, record: logging.LogRecord, datefmt: Union[str, None] = None) -> str:
+    def formatTime(self, record: logging.LogRecord, datefmt: Union[str, None] = None) -> str:  # noqa: N802
         """Formats timestamp of log messages, keeping first three digits of milliseconds.
 
         Args:
@@ -42,7 +45,7 @@ class MilliSecondsFormatter(logging.Formatter):
         Returns:
             str: formatted timestamp for LogRecord
         """
-        ct = dt.datetime.fromtimestamp(record.created)
+        ct = dt.datetime.fromtimestamp(record.created).astimezone(TZ_UTC)
         # sourcery skip: lift-return-into-if, remove-unnecessary-else
         if datefmt:
             s = ct.strftime(datefmt)
@@ -95,10 +98,10 @@ def add_rotating_file(logger: logging.Logger) -> None:
     Args:
         logger (logging.Logger): Logger to add handler to.
     """
-    base = os.path.dirname(LOGFILE)
-    if not os.path.isdir(base):
+    base = Path(LOGFILE).parent
+    if not base.is_dir():
         logger.debug(f'Logging directory {base} does not exist. Creating...')
-        os.makedirs(base, exist_ok=True)
+        Path.mkdir(parents=True, exist_ok=True)
         logger.debug(f'Created logging directory {base}')
     rot_fil_handler = logging.handlers.RotatingFileHandler(
         LOGFILE,
