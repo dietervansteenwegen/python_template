@@ -13,7 +13,7 @@ from typing import Union
 
 import pytz
 from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import QDesktopWidget, QDialog, QHBoxLayout
+from PyQt5.QtWidgets import QDesktopWidget, QDialog, QHBoxLayout, QPlainTextEdit
 
 LOG_FMT = (
     '%(asctime)s|%(levelname)-8.8s|%(thread)-18.18d|%(threadName)s|%(module)-15.15s|%(lineno)-0.4d|'
@@ -24,6 +24,7 @@ LOGFILE = './logs/logfile.log'
 LOG_FILE_MAX_BYTES = 1000000
 LOG_BACKUP_COUNT = 10
 TZ_UTC = pytz.timezone('utc')
+CONSOLE_LOG_LEVEL = logging.INFO
 
 
 class MilliSecondsFormatter(logging.Formatter):
@@ -64,11 +65,6 @@ def setup_logger() -> logging.Logger:
     """
     logger = logging.getLogger()  # DON'T specifiy name in order to create root logger!
     logger.setLevel(logging.DEBUG)
-
-    stream_handler = logging.StreamHandler()  # handler to stdout
-    stream_handler.setLevel(logging.ERROR)
-    stream_handler.setFormatter(MilliSecondsFormatter(LOG_FMT))
-    logger.addHandler(stream_handler)
     add_console_handler(logger)
     return logger
 
@@ -81,7 +77,7 @@ def add_console_handler(logger: logging.Logger) -> None:
         logger (logging.Logger): Logger to add handler to.
     """
     console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.DEBUG)
+    console_handler.setLevel(CONSOLE_LOG_LEVEL)
     console_handler.setFormatter(MilliSecondsFormatter(LOG_FMT))
     logger.addHandler(console_handler)
 
@@ -157,5 +153,5 @@ class DialogLog(QDialog):
 
         y = (monitor.height() - 40) - window.height()
         self.move(0, y)
-        logTextBox = QTLogHandler(self)
-        logging.getLogger().addHandler(logTextBox)
+        log_text_box = QTLogHandler(self)
+        logging.getLogger().addHandler(log_text_box)
